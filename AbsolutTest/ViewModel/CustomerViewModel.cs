@@ -90,6 +90,7 @@ namespace AbsolutTest.ViewModel
                 if (Document != null)
                     changedCustomer.Documents.Add(Document);
 
+                serverOfWork.Documents.Create(Document);
                 serverOfWork.Customers.Update(changedCustomer);
                 await serverOfWork.Save();
                 return "successfully added documents";
