@@ -21,11 +21,11 @@ namespace AbsolutTest.Model.Repository
             db.Document.Add(item);
         }
 
-        public void Delete(Guid id)
+        public void Delete(int id)
         {
-            Document book = db.Document.Find(id);
-            if (book != null)
-                db.Document.Remove(book);
+            Document ducoment = db.Document.Find(id);
+            if (ducoment != null)
+                db.Document.Remove(ducoment);
         }
 
         public IEnumerable<Document> GetAll()
@@ -33,14 +33,9 @@ namespace AbsolutTest.Model.Repository
             return db.Document;
         }
 
-        public Document GetItem(Guid id)
+        public Document GetItem(int id)
         {
             return db.Document.Find(id);
-        }
-
-        public void Save()
-        {
-            db.SaveChanges();
         }
 
         public void Update(Document item)

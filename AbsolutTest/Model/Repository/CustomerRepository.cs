@@ -21,11 +21,11 @@ namespace AbsolutTest.Model.Repository
             db.Customer.Add(item);
         }
 
-        public void Delete(Guid id)
+        public void Delete(int id)
         {
-            Customer book = db.Customer.Find(id);
-            if (book != null)
-                db.Customer.Remove(book);
+            Customer customer = db.Customer.Find(id);
+            if (customer != null)
+                db.Customer.Remove(customer);
         }
 
         public IEnumerable<Customer> GetAll()
@@ -33,14 +33,9 @@ namespace AbsolutTest.Model.Repository
             return db.Customer;
         }
 
-        public Customer GetItem(Guid id)
+        public Customer GetItem(int id)
         {
             return db.Customer.Find(id);
-        }
-
-        public void Save()
-        {
-            db.SaveChanges();
         }
 
         public void Update(Customer item)

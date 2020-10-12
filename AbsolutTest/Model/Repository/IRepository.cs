@@ -9,10 +9,9 @@ namespace WebApp.Models.Repository
         where T : class
     {
         IEnumerable<T> GetAll();
-        T GetItem(Guid id);
+        T GetItem(int id);
         void Create(T item);
         void Update(T item);
-        void Delete(Guid id);
-        void Save();
+        void Delete(int id);
     }
 }

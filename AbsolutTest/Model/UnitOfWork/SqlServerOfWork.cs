@@ -25,7 +25,7 @@ namespace AbsolutTest.Model.UnitOfWork
             }
         }
 
-        public DocumentRepository OrderElements
+        public DocumentRepository Documents
         {
             get
             {
@@ -35,14 +35,13 @@ namespace AbsolutTest.Model.UnitOfWork
             }
         }
 
-
         public SqlServerOfWork()
         {
         }
 
-        public void Save()
+        public Task<int> Save()
         {
-            db.SaveChanges();
+            return db.SaveChangesAsync();
         }
 
         private bool disposed = false;

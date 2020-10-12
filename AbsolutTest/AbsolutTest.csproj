@@ -55,7 +55,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Db.cs" />
+    <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="Model\AbsolutBankDb.cs" />
     <Compile Include="Model\Customer.cs" />
     <Compile Include="Model\Repository\CustomerRepository.cs" />
