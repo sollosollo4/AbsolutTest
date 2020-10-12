@@ -17,7 +17,7 @@ namespace AbsolutTest.Model
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Customer>()
-                .HasMany(e => e.Table)
+                .HasMany(e => e.Documents)
                 .WithRequired(e => e.Customer)
                 .WillCascadeOnDelete(false);
         }

@@ -81,5 +81,23 @@ namespace AbsolutTest.ViewModel
                 return e.Message;
             }
         }
+
+        public async Task<string> SaveDocs(int CustomerId, Document Document)
+        {
+            try
+            {
+                var changedCustomer = serverOfWork.Customers.GetItem(CustomerId);
+                if (Document != null)
+                    changedCustomer.Documents.Add(Document);
+
+                serverOfWork.Customers.Update(changedCustomer);
+                await serverOfWork.Save();
+                return "successfully added documents";
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+        }
     }
 }
