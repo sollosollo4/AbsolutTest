@@ -72,6 +72,12 @@ namespace AbsolutTest.ViewModel
                 if (Documents != null)
                     changedCustomer.Documents = Documents;
 
+                foreach (var document in Documents)
+                {
+                    document.CustomerId = CustomerId;
+                    serverOfWork.Documents.Create(document);
+                }
+
                 serverOfWork.Customers.Update(changedCustomer);
                 await serverOfWork.Save();
                 return "successfully added documents";
@@ -87,10 +93,12 @@ namespace AbsolutTest.ViewModel
             try
             {
                 var changedCustomer = serverOfWork.Customers.GetItem(CustomerId);
+                Document.CustomerId = CustomerId;
+                serverOfWork.Documents.Create(Document);
+
                 if (Document != null)
                     changedCustomer.Documents.Add(Document);
 
-                serverOfWork.Documents.Create(Document);
                 serverOfWork.Customers.Update(changedCustomer);
                 await serverOfWork.Save();
                 return "successfully added documents";
